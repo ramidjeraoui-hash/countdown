@@ -1,1 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>العد التنازلي للخطوبة</title>
 
+<style>
+body{
+    margin:0;
+    font-family:Tahoma,sans-serif;
+    background:#f8f1f5;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    text-align:center;
+}
+.card{
+    background:#fff;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(0,0,0,.15);
+    width:90%;
+    max-width:500px;
+}
+h1{
+    color:#d63384;
+}
+h2{
+    color:#444;
+}
+#countdown{
+    font-size:30px;
+    font-weight:bold;
+    color:#222;
+    margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<h1>💍 العد التنازلي لموعد الخطوبة 💍</h1>
+
+<h2>30 أوت 2026 - الساعة 5:00 مساءً</h2>
+
+<div id="countdown"></div>
+
+<p>نسأل الله أن يتمم لنا على خير ❤️</p>
+
+</div>
+
+<script>
+
+const target = new Date("2026-08-30T17:00:00").getTime();
+
+setInterval(function(){
+
+const now = new Date().getTime();
+
+const diff = target - now;
+
+if(diff <= 0){
+document.getElementById("countdown").innerHTML =
+"🎉 اليوم هو موعد الخطوبة 🎉";
+return;
+}
+
+const days = Math.floor(diff/(1000*60*60*24));
+const hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+const minutes = Math.floor((diff%(1000*60*60))/(1000*60));
+const seconds = Math.floor((diff%(1000*60))/1000);
+
+document.getElementById("countdown").innerHTML =
+days+" يوم<br>"+
+hours+" ساعة "+
+minutes+" دقيقة "+
+seconds+" ثانية";
+
+},1000);
+
+</script>
+
+</body>
+</html>
