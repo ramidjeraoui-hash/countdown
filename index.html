@@ -16,6 +16,7 @@ body{
     height:100vh;
     text-align:center;
 }
+
 .card{
     background:#fff;
     padding:30px;
@@ -24,59 +25,60 @@ body{
     width:90%;
     max-width:500px;
 }
+
 h1{
     color:#d63384;
 }
+
 h2{
     color:#444;
 }
+
 #countdown{
     font-size:30px;
     font-weight:bold;
     color:#222;
     margin-top:20px;
+    line-height:1.8;
 }
 </style>
-</head>
 
+</head>
 <body>
 
 <div class="card">
 <h1>💍 العد التنازلي لموعد الخطوبة 💍</h1>
-
-<h2>30 أوت 2026 - الساعة 5:00 مساءً</h2>
+<h2>20 جويلية 2026 - الساعة 2:00 مساءً</h2>
 
 <div id="countdown"></div>
-
-<p>نسأل الله أن يتمم لنا على خير ❤️</p>
 
 </div>
 
 <script>
 
-const target = new Date("2026-08-30T17:00:00").getTime();
+var targetDate = new Date("July 20, 2026 14:00:00").getTime();
 
-setInterval(function(){
+var timer = setInterval(function(){
 
-const now = new Date().getTime();
+var now = new Date().getTime();
 
-const diff = target - now;
+var distance = targetDate - now;
 
-if(diff <= 0){
-document.getElementById("countdown").innerHTML =
-"🎉 اليوم هو موعد الخطوبة 🎉";
+if(distance < 0){
+document.getElementById("countdown").innerHTML="🎉 ألف مبروك! حان موعد الخطوبة.";
+clearInterval(timer);
 return;
 }
 
-const days = Math.floor(diff/(1000*60*60*24));
-const hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-const minutes = Math.floor((diff%(1000*60*60))/(1000*60));
-const seconds = Math.floor((diff%(1000*60))/1000);
+var days = Math.floor(distance/(1000*60*60*24));
+var hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+var minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+var seconds = Math.floor((distance%(1000*60))/1000);
 
-document.getElementById("countdown").innerHTML =
+document.getElementById("countdown").innerHTML=
 days+" يوم<br>"+
-hours+" ساعة "+
-minutes+" دقيقة "+
+hours+" ساعة<br>"+
+minutes+" دقيقة<br>"+
 seconds+" ثانية";
 
 },1000);
